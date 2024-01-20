@@ -1,4 +1,4 @@
-import { Field, t } from '@apitable/widget-sdk';
+import { Field, t } from '@topspace/widget-sdk';
 import { transformAnnotation } from '../helper';
 import { Chart } from './base';
 import { ChartType, StackType } from './interface';

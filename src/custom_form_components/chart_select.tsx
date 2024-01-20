@@ -1,4 +1,4 @@
-import { DropdownSelect as Select, Tooltip } from '@apitable/components';
+import { DropdownSelect as Select, Tooltip } from "@topspace/components";
 import {
   ChartBarNormalFilled,
   ChartBarPercentFilled,
@@ -11,17 +11,17 @@ import {
   // ChartLinePercentFilled,
   ChartLineStackFilled,
   ChartPieFilled,
-  ChartScatterplotNormalFilled
-} from '@apitable/icons';
-import { Strings, t } from '../i18n';
+  ChartScatterplotNormalFilled,
+} from "@topspace/icons";
+import { Strings, t } from "../i18n";
 
-import React, { Fragment, useState } from 'react';
-import styled from 'styled-components';
-import { CHART_TYPES } from '../const';
-import { FormChatType } from '../model/interface';
+import React, { Fragment, useState } from "react";
+import styled from "styled-components";
+import { CHART_TYPES } from "../const";
+import { FormChatType } from "../model/interface";
 
 const ChartSelectWrapper = styled.div`
-  box-shadow: 0px 8px 24px 0px rgba(38,38,38,0.16);
+  box-shadow: 0px 8px 24px 0px rgba(38, 38, 38, 0.16);
   width: 276px;
   height: 400px;
   overflow: auto;
@@ -34,9 +34,9 @@ const ChartIconWrapper = styled.div<{ isActive: boolean }>`
   width: 56px;
   height: 56px;
   cursor: pointer;
-  border: 1px solid ${props => props.isActive ? '#7B67EE' : '#F0F0F6'};
+  border: 1px solid ${(props) => (props.isActive ? "#7B67EE" : "#F0F0F6")};
   &:first-child {
-    margin-left: 0!important;
+    margin-left: 0 !important;
   }
 `;
 
@@ -45,7 +45,7 @@ const ChartGroupWrapper = styled.div`
   justify-content: start;
   margin-top: 8px;
   margin-bottom: 24px;
-  &> ${ChartIconWrapper} {
+  & > ${ChartIconWrapper} {
     margin-left: 24px;
   }
 `;
@@ -54,7 +54,7 @@ export const ChartSelectBase = ({
   onChange,
   defaultValue,
 }: {
-  defaultValue: any,
+  defaultValue: any;
   onChange?: (value: any) => void;
 }) => {
   const [value, setValue] = useState(defaultValue || FormChatType.Column);
@@ -76,7 +76,6 @@ export const ChartSelectBase = ({
           name: t(Strings.echarts_stack_column_chart), // 'Stacked Bar Chart',
           id: FormChatType.EchartsStackColumn,
           Icon: ChartColumnStackFilled,
-
         },
         {
           name: t(Strings.echarts_percent_column_chart), // 'Percentage stacked bar chart',
@@ -147,43 +146,47 @@ export const ChartSelectBase = ({
     },
   ];
 
-  return <ChartSelectWrapper >
-    {
-      chartList.map(chartTypeObj => {
+  return (
+    <ChartSelectWrapper>
+      {chartList.map((chartTypeObj) => {
         return (
           <Fragment key={chartTypeObj.title}>
-            <div>
-              {chartTypeObj.title}
-            </div>
+            <div>{chartTypeObj.title}</div>
             <ChartGroupWrapper>
-              {
-                chartTypeObj.icons.map(chart => {
-                  return (
-                    <Tooltip content={chart.name} key={chart.id}>
-                      {/* FIXME: tooltip will override the onclick event of the child element, putting the onClick inside first */}
-                      <ChartIconWrapper isActive={value == chart.id} key={chart.id}>
-                        <chart.Icon size={56} onClick={() => handleIconClick(chart.id)} />
-                      </ChartIconWrapper>
-                    </Tooltip>
-                  );
-                })
-              }
+              {chartTypeObj.icons.map((chart) => {
+                return (
+                  <Tooltip content={chart.name} key={chart.id}>
+                    {/* FIXME: tooltip will override the onclick event of the child element, putting the onClick inside first */}
+                    <ChartIconWrapper
+                      isActive={value == chart.id}
+                      key={chart.id}
+                    >
+                      <chart.Icon
+                        size={56}
+                        onClick={() => handleIconClick(chart.id)}
+                      />
+                    </ChartIconWrapper>
+                  </Tooltip>
+                );
+              })}
             </ChartGroupWrapper>
           </Fragment>
         );
-      })
-    }
-
-  </ChartSelectWrapper>;
+      })}
+    </ChartSelectWrapper>
+  );
 };
 
 type ChartSelectProps = {
-  value: FormChatType,
+  value: FormChatType;
   onChange: (value: any) => void;
 };
 
 export const ChartSelect = ({ value, onChange }: ChartSelectProps) => {
-  const options = CHART_TYPES.map(item => ({ value: item.id, label: item.name }));
+  const options = CHART_TYPES.map((item) => ({
+    value: item.id,
+    label: item.name,
+  }));
 
   return (
     <Select
@@ -194,8 +197,10 @@ export const ChartSelect = ({ value, onChange }: ChartSelectProps) => {
         onChange(option.value as any);
       }}
       dropdownMatchSelectWidth
-      triggerStyle={{ width: '100%' }}
-      dropdownRender={<ChartSelectBase onChange={onChange} defaultValue={value} />}
+      triggerStyle={{ width: "100%" }}
+      dropdownRender={
+        <ChartSelectBase onChange={onChange} defaultValue={value} />
+      }
       noDataTip={t(Strings.empty_data)}
     />
   );

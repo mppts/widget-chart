@@ -1,15 +1,18 @@
-import styled, { css } from 'styled-components';
-import React from 'react';
-import { WarnFilled } from '@apitable/icons';
+import styled, { css } from "styled-components";
+import React from "react";
+import { WarnFilled } from "@topspace/icons";
 
-export const FormWrapper = styled.div<{ openSetting: boolean, readOnly: boolean }>`
+export const FormWrapper = styled.div<{
+  openSetting: boolean;
+  readOnly: boolean;
+}>`
   border-left: 1px solid var(--borderCommonDefault);
   width: 320px;
   flex-shrink: 0;
   height: 100%;
   padding: 1rem;
   overflow-y: auto;
-  display: ${(props) => props.openSetting ? 'block' : 'none'};
+  display: ${(props) => (props.openSetting ? "block" : "none")};
   ${(props) => {
     if (props.readOnly) {
       return css`
@@ -40,7 +43,7 @@ const WarningAlertInner = styled.div`
   background: #fef6e5;
   /* FC14 (warn with color) */
 
-  border: 1px solid #FFAB00;
+  border: 1px solid #ffab00;
   box-sizing: border-box;
   border-radius: 6px;
   z-index: 1;
@@ -48,11 +51,12 @@ const WarningAlertInner = styled.div`
 
 // TODO: Temporary use, replace here when the alert component is finished.
 export const WarningAlert = ({ children }) => {
-
-  return <ChartWarningWrapper>
-    <WarningAlertInner >
-      <WarnFilled />
-      <div>{children}</div>
-    </WarningAlertInner>
-  </ChartWarningWrapper>;
+  return (
+    <ChartWarningWrapper>
+      <WarningAlertInner>
+        <WarnFilled />
+        <div>{children}</div>
+      </WarningAlertInner>
+    </ChartWarningWrapper>
+  );
 };

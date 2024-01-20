@@ -1,4 +1,4 @@
-import { Field, Record } from '@apitable/widget-sdk';
+import { Field, Record } from '@topspace/widget-sdk';
 import groupBy from 'lodash/groupBy';
 import isNumber from 'lodash/isNumber';
 import { formatDatetime, formatterValue, getAggregationValue, getNumberBaseFieldPrecision, groupByDimensionValue, maxRenderNum, processChartDataSort, processRecords, sortSeries } from '../helper';

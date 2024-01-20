@@ -1,4 +1,4 @@
-import { Field, Record } from '@apitable/widget-sdk';
+import { Field, Record } from '@topspace/widget-sdk';
 import { EchartsBase } from './echarts_base';
 import { ChartType, StackType } from './interface';
 import { Strings, t } from '../i18n';

@@ -1,4 +1,4 @@
-import { Field, Record, BasicValueType } from '@apitable/widget-sdk';
+import { Field, Record, BasicValueType } from '@topspace/widget-sdk';
 import groupBy from 'lodash/groupBy'; 
 import sortBy from 'lodash/sortBy';
 import { PieChart, ScatterChart } from '.';

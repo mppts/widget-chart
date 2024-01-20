@@ -1,4 +1,4 @@
-import { BasicValueType, Field, Record } from '@apitable/widget-sdk';
+import { BasicValueType, Field, Record } from '@topspace/widget-sdk';
 import { EChartsCoreOption, EChartsOption } from 'echarts';
 import { ChartType, FormChatType, IDimensionMetricsMap, IFormConfig, IFormProperties, StackType } from "./interface";
 import { Strings, t } from '../i18n';

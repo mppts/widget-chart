@@ -1,12 +1,12 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
-import { lightColors, darkColors } from '@apitable/components';
-import * as echarts from 'echarts/core';
-import { ECharts, EChartsOption } from 'echarts';
-import { BarChart, PieChart, LineChart, ScatterChart } from 'echarts/charts';
-import { ChartType } from './model/interface';
-import { WarningAlert } from './sc';
-import { themesMap } from './theme';
-import { Strings, t } from './i18n';
+import React, { memo, useEffect, useRef, useState } from "react";
+import { lightColors, darkColors } from "@topspace/components";
+import * as echarts from "echarts/core";
+import { ECharts, EChartsOption } from "echarts";
+import { BarChart, PieChart, LineChart, ScatterChart } from "echarts/charts";
+import { ChartType } from "./model/interface";
+import { WarningAlert } from "./sc";
+import { themesMap } from "./theme";
+import { Strings, t } from "./i18n";
 import {
   TitleComponent,
   TooltipComponent,
@@ -15,17 +15,17 @@ import {
   TransformComponent,
   LegendComponent,
   // DataZoomComponent,
-} from 'echarts/components';
+} from "echarts/components";
 // Automatic label layout, global transition animation and other features.
-import { LabelLayout, UniversalTransition } from 'echarts/features';
+import { LabelLayout, UniversalTransition } from "echarts/features";
 // Introduce the Canvas renderer, note that introducing the CanvasRenderer or SVGRenderer is a required step.
-import { CanvasRenderer } from 'echarts/renderers';
-import { listenDOMSize } from './utils';
-import { EchartsBase } from 'model/echarts_base';
+import { CanvasRenderer } from "echarts/renderers";
+import { listenDOMSize } from "./utils";
+import { EchartsBase } from "model/echarts_base";
 import { useUnmount } from "ahooks";
 
 interface IWidgetChartCanvas {
-  chartInstance: EchartsBase,
+  chartInstance: EchartsBase;
   chartType: ChartType;
   options: EChartsOption;
   isExpanded?: boolean;
@@ -35,7 +35,7 @@ interface IWidgetChartCanvas {
   formData: any;
 }
 
-Object.keys(themesMap).forEach(key => {
+Object.keys(themesMap).forEach((key) => {
   const theme = themesMap[key];
   echarts.registerTheme(key, {
     color: theme.colors20,
@@ -43,7 +43,14 @@ Object.keys(themesMap).forEach(key => {
 });
 
 const WidgetChart: React.FC<IWidgetChartCanvas> = ({
-  chartType, chartInstance, options, isPartOfData, isExpanded, theme, formRefreshFlag, formData
+  chartType,
+  chartInstance,
+  options,
+  isPartOfData,
+  isExpanded,
+  theme,
+  formRefreshFlag,
+  formData,
 }) => {
   const [clear, setClear] = useState(false);
   const chartContainerRef = useRef<HTMLDivElement>(null);
@@ -55,29 +62,46 @@ const WidgetChart: React.FC<IWidgetChartCanvas> = ({
     }
   }, [options, formData, chartContainerRef.current]);
 
-  useUnmount(
-      () => {
-          echartsInstanceRef.current?.dispose();
+  useUnmount(() => {
+    echartsInstanceRef.current?.dispose();
+  });
+
+  const echartsInstanceRef: React.MutableRefObject<ECharts | undefined> =
+    useRef<ECharts | undefined>();
+  const renderEcharts = React.useCallback(
+    ({ width, height }) => {
+      // Determine whether the form configuration has been changed, inconsistent need to clear the last drawing.
+      if (clear !== formRefreshFlag) {
+        echarts.dispose(chartContainerRef.current!);
+        setClear(formRefreshFlag);
       }
-  )
+      const myChart = echarts.init(
+        chartContainerRef.current!,
+        theme
+      ) as unknown as ECharts;
+      echartsInstanceRef.current = myChart;
+      const mergeOptions = chartInstance.getMergeOption({
+        chartInstance,
+        options: { ...options },
+        lightColors,
+        darkColors,
+        width,
+        height,
+      });
 
-  const echartsInstanceRef: React.MutableRefObject<ECharts|undefined> = useRef<ECharts|undefined>()
-  const renderEcharts = React.useCallback(({ width, height }) => {
-    // Determine whether the form configuration has been changed, inconsistent need to clear the last drawing.
-    if (clear !== formRefreshFlag) {
-      echarts.dispose(chartContainerRef.current!);
-      setClear(formRefreshFlag);
-    }
-    const myChart = echarts.init(chartContainerRef.current!, theme) as unknown as ECharts;
-    echartsInstanceRef.current = myChart;
-    const mergeOptions = chartInstance.getMergeOption(
-      { chartInstance, options: { ...options }, lightColors, darkColors, width, height }
-    );
-
-    myChart.setOption(mergeOptions);
-    myChart.resize();
-  }, [options, formData, theme, chartInstance.stackType, chartType, formRefreshFlag, clear]);
-
+      myChart.setOption(mergeOptions);
+      myChart.resize();
+    },
+    [
+      options,
+      formData,
+      theme,
+      chartInstance.stackType,
+      chartType,
+      formRefreshFlag,
+      clear,
+    ]
+  );
 
   useEffect(() => {
     // Register required components.
@@ -95,7 +119,7 @@ const WidgetChart: React.FC<IWidgetChartCanvas> = ({
       ScatterChart,
       LabelLayout,
       UniversalTransition,
-      CanvasRenderer
+      CanvasRenderer,
     ]);
   }, []);
 
@@ -104,12 +128,37 @@ const WidgetChart: React.FC<IWidgetChartCanvas> = ({
       addListen(renderEcharts);
     }
     return removeListen;
-  }, [chartContainerRef.current, clear, formData, chartInstance.stackType, chartType, options, theme]);
+  }, [
+    chartContainerRef.current,
+    clear,
+    formData,
+    chartInstance.stackType,
+    chartType,
+    options,
+    theme,
+  ]);
 
   return (
-    <div style={{ width: '100%', height: '100%', overflow: 'hidden', position: 'relative' }} >
-      {isPartOfData && isExpanded && <WarningAlert >{t(Strings.limit_chart_values)}</WarningAlert>}
-      <div ref={chartContainerRef} style={{ width: '100%', height: '100%', padding: isExpanded ? 24 : 8, overflow: 'hidden' }} />
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      {isPartOfData && isExpanded && (
+        <WarningAlert>{t(Strings.limit_chart_values)}</WarningAlert>
+      )}
+      <div
+        ref={chartContainerRef}
+        style={{
+          width: "100%",
+          height: "100%",
+          padding: isExpanded ? 24 : 8,
+          overflow: "hidden",
+        }}
+      />
     </div>
   );
 };

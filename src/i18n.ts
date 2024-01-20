@@ -1,4 +1,4 @@
-import { getLanguage } from '@apitable/widget-sdk';
+import { getLanguage } from '@topspace/widget-sdk';
 import stringsConfigJson from '../strings.json';
 
 interface ILanguageField {

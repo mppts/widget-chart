@@ -6,7 +6,7 @@ import {
   INumberBaseFormatType,
   IPercentFormat,
   Record
-} from '@apitable/widget-sdk';
+} from '@topspace/widget-sdk';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import weekOfYear from 'dayjs/plugin/weekOfYear';

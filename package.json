@@ -1,15 +1,15 @@
 {
   "version": "1.6.0",
-  "description": "my apitable widget chart",
+  "description": "my topspace widget chart",
   "engines": {
     "node": ">=8.x"
   },
   "keywords": [
-    "apitable",
+    "topspace",
     "widget",
     "chart",
     "widgets",
-    "apitable widgets"
+    "topspace widgets"
   ],
   "main": "./dist/index",
   "module": "./dist/index",
@@ -36,10 +36,10 @@
   },
   "dependencies": {
     "@antv/g2plot": "^2.3.39",
-    "@apitable/components": "^1.4.0",
-    "@apitable/core": "latest",
-    "@apitable/icons": "^1.4.0",
-    "@apitable/widget-sdk": "^1.4.0",
+    "@topspace/components": "^1.4.0",
+    "@topspace/core": "latest",
+    "@topspace/icons": "^1.4.0",
+    "@topspace/widget-sdk": "^1.4.0",
     "@rjsf/core": "^2.4.0",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",

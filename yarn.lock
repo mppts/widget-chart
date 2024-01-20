@@ -231,13 +231,13 @@
     csstype "^3.0.8"
     tslib "^2.0.3"
 
-"@apitable/components@*":
+"@topspace/components@*":
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@apitable/components/-/components-0.0.2.tgz#2c3a51a5433f3cec9379251b1c0d2ce2cec9a730"
+  resolved "https://registry.yarnpkg.com/@topspace/components/-/components-0.0.2.tgz#2c3a51a5433f3cec9379251b1c0d2ce2cec9a730"
   integrity sha512-EAmqP4Bydu5xTcIfjwwxyeaytvxoe6BUlQNrGIUwQ4keBOOCKZ5zRnTStS+JiCsAeEDSPw14JTMyj/aKuJnp1g==
   dependencies:
-    "@apitable/icons" "*"
-    "@apitable/react-contexify" "^5.0.7"
+    "@topspace/icons" "*"
+    "@topspace/react-contexify" "^5.0.7"
     "@rjsf/core" "^4.2.3"
     "@types/react-window" "1.8.1"
     ahooks "^3.5.0"
@@ -259,14 +259,14 @@
     resize-observer-polyfill "^1.5.1"
     styled-system "^5.1.5"
 
-"@apitable/components@^1.4.0":
+"@topspace/components@^1.4.0":
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@apitable/components/-/components-1.4.0.tgz#27fe92825546e97cc84294eafb0fdbae709a90e7"
+  resolved "https://registry.yarnpkg.com/@topspace/components/-/components-1.4.0.tgz#27fe92825546e97cc84294eafb0fdbae709a90e7"
   integrity sha512-cD6gLiMlq48W03lrsQGKf9azuprBVj5v63joZvOmBHuKtQg0r+4dJ9g6iVUy2+1j0N640c/nl1cFf+jcQ9GkNw==
   dependencies:
-    "@apitable/core" "*"
-    "@apitable/icons" "*"
-    "@apitable/react-contexify" "^5.0.7"
+    "@topspace/core" "*"
+    "@topspace/icons" "*"
+    "@topspace/react-contexify" "^5.0.7"
     "@floating-ui/dom" "^1.5.1"
     "@floating-ui/react" "0.24.5"
     "@rjsf/core" "^4.2.3"
@@ -291,12 +291,12 @@
     resize-observer-polyfill "^1.5.1"
     styled-system "^5.1.5"
 
-"@apitable/core@*", "@apitable/core@latest":
+"@topspace/core@*", "@topspace/core@latest":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@apitable/core/-/core-0.0.1.tgz#bbddd00b920514981e321921c9b36e06ee1b149d"
+  resolved "https://registry.yarnpkg.com/@topspace/core/-/core-0.0.1.tgz#bbddd00b920514981e321921c9b36e06ee1b149d"
   integrity sha512-jq8TDwbzSqxQoSFIPc09Wkdf1dRADGaaRoZ/sUEIVqwxMl8NTbJ4iX4MAFjnmCfOulmhYsC/Hx5MtIzw3XmzWw==
   dependencies:
-    "@apitable/i18n" "^1.0.2"
+    "@topspace/i18n" "^1.0.2"
     "@types/lodash" "4.14.161"
     "@types/socket.io-client" "^1.4.36"
     apphook "1.0.6"
@@ -322,39 +322,39 @@
     string.prototype.matchall "^4.0.2"
     urlcat "^2.0.4"
 
-"@apitable/i18n@^1.0.2":
+"@topspace/i18n@^1.0.2":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@apitable/i18n/-/i18n-1.0.3.tgz#478eb16041d224d0ce607b44c3dd27769a7078d9"
+  resolved "https://registry.yarnpkg.com/@topspace/i18n/-/i18n-1.0.3.tgz#478eb16041d224d0ce607b44c3dd27769a7078d9"
   integrity sha512-0S+LaxGwdip9CYtWqs/RkKkFTxaEdK002S8zqcXtX2LBuD/c69AbYwYWHr8azUyzYBWqNXCVjNoXaMCu6Fu0rw==
   dependencies:
-    apitable "^0.8.1"
+    topspace "^0.8.1"
     lodash "^4.17.21"
 
-"@apitable/icons@*":
+"@topspace/icons@*":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@apitable/icons/-/icons-0.0.1.tgz#13484c89c271c915d9dfc024215d9fdadc5ec506"
+  resolved "https://registry.yarnpkg.com/@topspace/icons/-/icons-0.0.1.tgz#13484c89c271c915d9dfc024215d9fdadc5ec506"
   integrity sha512-Mvo++bkOoFxpC79HM4GLhgCcgJSo5NZlov5pv3CLZk4R7idvNz2lOLiyTWKDpcDBVNiDAKoF1D2asJ8R7cekBw==
 
-"@apitable/icons@^1.4.0":
+"@topspace/icons@^1.4.0":
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@apitable/icons/-/icons-1.4.0.tgz#107bf4ada53c271f8c702e66d7853d88089efb97"
+  resolved "https://registry.yarnpkg.com/@topspace/icons/-/icons-1.4.0.tgz#107bf4ada53c271f8c702e66d7853d88089efb97"
   integrity sha512-m3+6p61WRLcSOFENTYF3thwjbsE7jyrcM8W00XdvAWWUR9FtzfeMRfHk/R9QQhyJQDQW6JYXy9KzBGPY3cmACg==
 
-"@apitable/react-contexify@^5.0.7":
+"@topspace/react-contexify@^5.0.7":
   version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@apitable/react-contexify/-/react-contexify-5.0.7.tgz#a6d1b1025519563b619cba3e7167dae7994792bd"
+  resolved "https://registry.yarnpkg.com/@topspace/react-contexify/-/react-contexify-5.0.7.tgz#a6d1b1025519563b619cba3e7167dae7994792bd"
   integrity sha512-EalTIRsprBs1RWt1KhRK28OO/QCouLCRC/ODZFQlL25Wj4bUpYJ/0LLI3etUo7rlDmmwQGyJKXHUjPAw6Ot7bw==
   dependencies:
     clsx "^1.1.1"
 
-"@apitable/widget-sdk@^1.4.0":
+"@topspace/widget-sdk@^1.4.0":
   version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@apitable/widget-sdk/-/widget-sdk-1.4.1.tgz#1bccbed01acb187e6d34e0e1b1777c6b067b827a"
+  resolved "https://registry.yarnpkg.com/@topspace/widget-sdk/-/widget-sdk-1.4.1.tgz#1bccbed01acb187e6d34e0e1b1777c6b067b827a"
   integrity sha512-7LWg8lxpNyV1PVOspyH0lBBX/GSFG9yV23O06bVWu2rmBMKnQfDBzBVCqe6O4fND294JO0jHNsA9wG7os1C6VQ==
   dependencies:
-    "@apitable/components" "*"
-    "@apitable/core" "*"
-    "@apitable/icons" "*"
+    "@topspace/components" "*"
+    "@topspace/core" "*"
+    "@topspace/icons" "*"
     "@testing-library/react-hooks" "^7.0.1"
     ahooks "^3.5.0"
     antd "4.23.5"
@@ -1291,9 +1291,9 @@ antd@4.23.5:
     rc-util "^5.22.5"
     scroll-into-view-if-needed "^2.2.25"
 
-apitable@^0.8.1:
+topspace@^0.8.1:
   version "0.8.2"
-  resolved "https://registry.npmmirror.com/apitable/-/apitable-0.8.2.tgz#d3c59f70694b1049596c4af6a4c1e3706cbc8aec"
+  resolved "https://registry.npmmirror.com/topspace/-/topspace-0.8.2.tgz#d3c59f70694b1049596c4af6a4c1e3706cbc8aec"
   integrity sha512-kfQgP4CfJJJ/RpfDR9q5g0Tdslr2uARiqCodf++TC+qqzhN8cT1pvvodFTTOinbbhph1GOfkqKztw3J6f3WINw==
   dependencies:
     axios "^0.19.2"

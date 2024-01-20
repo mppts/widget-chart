@@ -3,7 +3,7 @@ import { ChartType, StackType } from "./interface";
 import { Strings, t } from '../i18n';
 import { formatterValue, maxRenderNum, processChartData, processRecords, sortSeries } from '../helper';
 import { EchartsBase } from './echarts_base';
-import { Field } from '@apitable/widget-sdk';
+import { Field } from '@topspace/widget-sdk';
 
 export class EchartsLine extends EchartsBase {
   type = ChartType.EchartsLine;

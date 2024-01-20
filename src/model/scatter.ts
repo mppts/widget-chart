@@ -1,5 +1,5 @@
 import { Strings } from '../i18n';
-import { Field, Record, t } from '@apitable/widget-sdk';
+import { Field, Record, t } from '@topspace/widget-sdk';
 import { themesMap } from '../theme';
 import groupBy from 'lodash/groupBy';
 import isNumber from 'lodash/isNumber';

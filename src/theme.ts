@@ -2,7 +2,7 @@
 import {
   purple, deepPurple, indigo, blue, teal,
   green, yellow, orange, tangerine, pink, red, brown,
-} from '@apitable/components';
+} from '@topspace/components';
 import { Strings, t } from './i18n';
 
 // Built-in 4 sets of theme color schemes.
