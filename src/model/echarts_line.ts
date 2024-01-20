@@ -11,7 +11,7 @@ export class EchartsLine extends EchartsBase {
   constructor(stackType: StackType, theme) {
     super(stackType, theme);
   }
-  
+
   getChartStyleFormJSON(fields: any[]) {
     const dimensionMetricsMap = this.getFormDimensionMetricsMap();
     return {
@@ -71,8 +71,8 @@ export class EchartsLine extends EchartsBase {
       commonOption: {
         ...this.getCommonStyleOptions(),
         tooltip: {
-          trigger: 'axis', axisPointer: {type: 'shadow'}, appendToBody: true,
-          valueFormatter: (value) => formatterValue({property, type}, value, noFormatMetric),
+          trigger: 'axis', axisPointer: { type: 'shadow' }, appendToBody: true,
+          valueFormatter: (value) => formatterValue({ property, type }, value, noFormatMetric),
         },
       },
       series: {
@@ -102,7 +102,7 @@ export class EchartsLine extends EchartsBase {
     // date formatting.
     const { seriesField, dimension, metrics, metricsType, isSplitMultipleValue,
       isFormatDatetime: _isFormatDatetime, datetimeFormatter } = chartStructure;
-    
+
     const { axisSortType, isCountNullValue, excludeZeroPoint } = chartStyle;
     const dimensionMetricsMap = this.getFormDimensionMetricsMap();
     // Statistical dimension attribute, statistical value attribute, statistical value name.

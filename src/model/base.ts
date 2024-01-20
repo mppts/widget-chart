@@ -1,5 +1,5 @@
 import { Field, Record, BasicValueType } from '@topspace/widget-sdk';
-import groupBy from 'lodash/groupBy'; 
+import groupBy from 'lodash/groupBy';
 import sortBy from 'lodash/sortBy';
 import { PieChart, ScatterChart } from '.';
 import { AGGREGATION_TYPES, AGGREGATION_TYPES_NAMES, CHART_TYPES, METRICS_TYPES, METRICS_TYPES_NAMES } from '../const';

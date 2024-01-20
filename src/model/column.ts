@@ -3,7 +3,7 @@ import { transformAnnotation } from '../helper';
 import { Chart } from './base';
 import { ChartType, StackType } from './interface';
 import { Strings } from '../i18n';
-import {safeParseNumberOrText} from "../utils";
+import { safeParseNumberOrText } from "../utils";
 
 /**
  * The bar chart is equivalent to the base class of Cartesian coordinate system graphs.
@@ -85,7 +85,7 @@ export class ColumnChart extends Chart {
         };
         if (this.stackType === StackType.Percent) {
           styleOptions.label.content = (item) => {
-            return `${safeParseNumberOrText((100 * item[dimensionMetricsMap.metrics.key]), 2) }%`;
+            return `${safeParseNumberOrText((100 * item[dimensionMetricsMap.metrics.key]), 2)}%`;
           };
         }
       }

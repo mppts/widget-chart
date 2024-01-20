@@ -7,7 +7,7 @@ import { EchartsBase } from './echarts_base';
 
 export class EchartsColumn extends EchartsBase {
   type = ChartType.EchartsColumn;
-  
+
   constructor(stackType: StackType, theme) {
     super(stackType, theme);
   }
@@ -143,7 +143,7 @@ export class EchartsColumn extends EchartsBase {
     // Stacked Fields
     const { seriesField, dimension, metrics, metricsType, isSplitMultipleValue,
       isFormatDatetime: _isFormatDatetime, datetimeFormatter } = chartStructure;
-    
+
     const isColumn = this.type === ChartType.EchartsColumn;
     const isPercent = this.stackType === StackType.Percent
     const { axisSortType, isCountNullValue, excludeZeroPoint } = chartStyle;
@@ -240,7 +240,7 @@ export class EchartsColumn extends EchartsBase {
       noFormatMetric,
       countTotalRecords,
     });
-    
+
     const subPercentAxis = isPercent ? { max: 100 } : {};
 
     const mainAxis = { ...mainAxisOption };

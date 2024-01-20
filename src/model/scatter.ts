@@ -7,7 +7,7 @@ import { METRICS_TYPES } from '../const';
 import { formatDatetime, getAggregationValue, getFormatter, getNumberBaseFieldPrecision, processChartDataSort, processRecords } from '../helper';
 import { ColumnChart } from './column';
 import { ChartType, StackType } from './interface';
-import {safeParseNumberOrText} from "../utils";
+import { safeParseNumberOrText } from "../utils";
 
 export class ScatterChart extends ColumnChart {
   type = ChartType.Scatter;

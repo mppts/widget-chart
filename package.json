@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "my topspace widget chart",
   "engines": {
     "node": ">=8.x"
@@ -32,14 +32,15 @@
     "eslint": "7.32.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-vika": "0.0.1"
+    "eslint-plugin-vika": "0.0.1",
+    "@apitable/widget-cli": "*"
   },
   "dependencies": {
     "@antv/g2plot": "^2.3.39",
-    "@topspace/components": "^1.4.0",
-    "@topspace/core": "latest",
-    "@topspace/icons": "^1.4.0",
-    "@topspace/widget-sdk": "^1.4.0",
+    "@topspace/components": "*",
+    "@topspace/core": "*",
+    "@topspace/icons": "*",
+    "@topspace/widget-sdk": "*",
     "@rjsf/core": "^2.4.0",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",

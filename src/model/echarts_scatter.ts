@@ -6,7 +6,7 @@ import { Strings, t } from "../i18n";
 import { METRICS_TYPES } from '../const';
 import { ChartType, StackType } from "./interface";
 import { EchartsBase } from './echarts_base';
-import {safeParseNumberOrText} from "../utils";
+import { safeParseNumberOrText } from "../utils";
 
 export class EchartsScatter extends EchartsBase {
   type = ChartType.EchartsScatter;

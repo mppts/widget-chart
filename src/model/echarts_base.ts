@@ -166,7 +166,7 @@ export abstract class EchartsBase {
    */
   getMergeOption(configs) {
     const { options, chartInstance, lightColors, darkColors, width, height } = configs;
-    const mergeOptions = { ...options };    
+    const mergeOptions = { ...options };
 
     const size = { width: width - 48, height: height - 48 };
 
@@ -175,7 +175,7 @@ export abstract class EchartsBase {
     } else {
       this.getPieOption(mergeOptions, chartInstance, size);
     }
-    
+
     return mergeOptions;
   }
 

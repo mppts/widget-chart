@@ -21,7 +21,7 @@ import { IDimensionMetricsMap, StackType } from './model/interface';
 import { Strings, t } from './i18n';
 import { sortBy } from './sortBy';
 import { IOutputChartData, IOutputRecordData } from '../interface';
-import {safeParseNumberOrText} from "./utils";
+import { safeParseNumberOrText } from "./utils";
 
 dayjs.extend(advancedFormat);
 dayjs.extend(weekOfYear);
@@ -221,9 +221,9 @@ export const getFieldFormEnum = (fields: Field[]) => {
 };
 
 export const transformAnnotation: any = (annotation: {
-    title: string;
-    color: string;
-    value: number;
+  title: string;
+  color: string;
+  value: number;
 }) => {
   const { title, value, color } = annotation;
   return [
@@ -283,7 +283,7 @@ export const getFormatter = (field?: Field, times = 1) => {
   }
   if (field.formatType?.type === 'percent') {
     const formatting = field.formatType.formatting as IPercentFormat;
-    return (val) => `${ safeParseNumberOrText((parseFloat(val) * times), formatting.precision)} %`;
+    return (val) => `${safeParseNumberOrText((parseFloat(val) * times), formatting.precision)} %`;
   }
   // val is converted to a space when it contains '\n'.
   return defaultFormatter;
@@ -318,8 +318,8 @@ export const formatterValue = (field, value, notFormatter = true): string | numb
     try {
       const textValue = isNumber(value) ? safeParseNumberOrText(value, precision) : safeParseNumberOrText(value, precision);
       return `${fieldSymbol} ${textValue}`;
-    }catch (e) {
-      console.error('parse currency' , e);
+    } catch (e) {
+      console.error('parse currency', e);
       return `${fieldSymbol} ${String(value)}`;
     }
   }
@@ -376,21 +376,21 @@ export const checkMetrics = (metricsType: string, metricsField?: Field) => {
  */
 export const processRecords = (
   data: {
-        records: Record[];
-        dimensionField?: Field;
-        metricsField?: Field;
-        metricsType: string;
-        seriesField?: Field;
-        isSplitMultiValue?: boolean;
-        isCountNullValue?: boolean;
-    }
+    records: Record[];
+    dimensionField?: Field;
+    metricsField?: Field;
+    metricsType: string;
+    seriesField?: Field;
+    isSplitMultiValue?: boolean;
+    isCountNullValue?: boolean;
+  }
 ): IOutputRecordData[] => {
   const { records, dimensionField, metricsField, metricsType, seriesField, isSplitMultiValue } = data;
 
   if (!dimensionField || !checkMetrics(metricsType, metricsField)) return [];
   // const start = Date.now();
   const metricsIsPercent = metricsField?.type === FieldType.Percent ||
-        metricsField?.property?.format?.type === FieldType.Percent;
+    metricsField?.property?.format?.type === FieldType.Percent;
   const scaleMetricsNum = metricsIsPercent ? 100 : 1;
   const seriesIsPercent = seriesField?.type === FieldType.Percent || seriesField?.formatType?.type === 'percent';
   const isDateTime = checkDateTimeType(dimensionField);
@@ -425,7 +425,7 @@ export const processRecords = (
     recordData.dimension = dimensionValue.trim().split('\n').join(' ');
     return [recordData];
   }).flat();
-    // console.log('takes time: ', Date.now() - start);
+  // console.log('takes time: ', Date.now() - start);
   return res;
 };
 
@@ -443,16 +443,16 @@ export const processRecords = (
  * @property {String} data.datetimeFormatter - Date and time formatted format string.
  */
 export const processChartData = (data: {
-    rows: IOutputRecordData[];
-    dimensionMetricsMap: IDimensionMetricsMap;
-    dimensionField?: Field;
-    metricsType: string;
-    metrics: any;
-    metricsField?: Field;
-    seriesFieldInstance?: Field;
-    isCountNullValue: boolean;
-    isFormatDatetime?: boolean;
-    datetimeFormatter?: string;
+  rows: IOutputRecordData[];
+  dimensionMetricsMap: IDimensionMetricsMap;
+  dimensionField?: Field;
+  metricsType: string;
+  metrics: any;
+  metricsField?: Field;
+  seriesFieldInstance?: Field;
+  isCountNullValue: boolean;
+  isFormatDatetime?: boolean;
+  datetimeFormatter?: string;
 }): IOutputChartData[] => {
   const {
     rows,
@@ -656,11 +656,11 @@ export const guessNumberFieldPrecision = (numbers: number[]) => {
 };
 
 export const processChartDataSort = ({ axisSortType, dimensionMetricsMap, dimensionField, data, seriesField }: {
-    axisSortType: any;
-    dimensionMetricsMap: IDimensionMetricsMap;
-    dimensionField?: Field;
-    seriesField?: Field;
-    data: any[];
+  axisSortType: any;
+  dimensionMetricsMap: IDimensionMetricsMap;
+  dimensionField?: Field;
+  seriesField?: Field;
+  data: any[];
 }) => {
   if (!dimensionField) return [];
   const { axis, sortType } = axisSortType;
@@ -709,14 +709,14 @@ export const processChartDataSort = ({ axisSortType, dimensionMetricsMap, dimens
 
 export const maxRenderNum = 501;
 export const sortSeries = (props: {
-    axisSortType: { axis: string; sortType: string };
-    dimensionMetricsMap: IDimensionMetricsMap;
-    dimensionField: Field;
-    seriesField?: Field;
-    data;
-    metricsField?: Field;
-    isColumn?: boolean;
-    isPercent?: boolean;
+  axisSortType: { axis: string; sortType: string };
+  dimensionMetricsMap: IDimensionMetricsMap;
+  dimensionField: Field;
+  seriesField?: Field;
+  data;
+  metricsField?: Field;
+  isColumn?: boolean;
+  isPercent?: boolean;
 }) => {
   const {
     axisSortType,
@@ -880,7 +880,7 @@ export const sortSeries = (props: {
       const sortedLegendNames = [...legendNames].sort((a, b) => {
         if (shouldReplaceSymbol) {
           return Number(a.replace(fieldSymbol, '').trim()) -
-                        Number(b.replace(fieldSymbol, '').trim());
+            Number(b.replace(fieldSymbol, '').trim());
         }
         return a.trim().localeCompare(b.trim());
       }).slice(0, maxRenderNum);
